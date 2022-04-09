@@ -1,6 +1,18 @@
 <h1><%= @task.title %></h1>
-<h4><%= @task.details %></h4>
-<input type="checkbox" name="" id="">This task is not conpleted yet</input>
+<div class="card p-4" >
+  <h6><%= @task.details %></h6>
+</div>
+<%# <input type="checkbox" name="" id="completed"> %>
+<%# <label for="completed">This task is not completed yet</label> %>
+<!-- <%= form_for(@task) do |f| %>
+  <%= f.check_box :completed %>
+  <%= f.label :completed, 'This task is not completed yet!'%>
+<% end %>> -->
+<% if @task.completed %>
+  <p><i class="fas fa-check-square"></i> This task is completed</p>
+<% else %>
+  <p><i class="far fa-square"></i> This task is not completed yet</p>
+<% end %>
 <br><br>
-<%= link_to 'Back to list', root_path %>
-<%= link_to 'Edit task', edit_task_path(@task) %>
+<%= link_to '<i class="fas fa-arrow-circle-left"></i> Back to list'.html_safe, root_path %>
+<%= link_to '<i class="fas fa-edit"></i> Edit task'.html_safe, edit_task_path(@task) %>
