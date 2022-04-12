@@ -1,7 +1,16 @@
 <h1> My Task List</h1>
 <ul>
 <% @tasks.each do |task| %>
-  <% icon = task.completed ?  '<i class="far fa-check-square"></i>' : '<i class="far fa-square"></i>' %>
-  <li> <%= icon.html_safe %> <%= link_to task.title, task_path(task.id) %> . <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, delete_task_path(task), method: :delete %></li>
+  <li><div id="task">
+    <% icon = task.completed ?  '<i class="far fa-check-square"></i>' : '<i class="far fa-square"></i>' %>
+    <%= icon.html_safe %> <%=  %>
+    <%= link_to task.title, task_path(task.id) %>
+  </div>
+  <div id="task-delete">
+    <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, delete_task_path(task), method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  </div></li>
 <% end %>
 </ul>
+<hr>
+<%= link_to '<i class="fas fa-plus"></i> Add a new task'.html_safe, tasks_new_path %>

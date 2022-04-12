@@ -8,11 +8,14 @@ Rails.application.routes.draw do
   # the other is there to handle the POST request generated when submitting this form
   get 'tasks/new', to: 'tasks#new'
   post 'tasks', to: 'tasks#create'
+
   # UPDATE As a user, I can edit a task
   get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'
   patch 'tasks/:id', to: 'tasks#update'
+
   # DELETE As a user, I can remove a task
   delete 'tasks/:id', to: 'tasks#destroy', as: 'delete_task'
+
   # As a user, I can view the details of a task
   get 'tasks/:id', to: 'tasks#show', as: 'task'
 end

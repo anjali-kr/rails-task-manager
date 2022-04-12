@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     # create new task with details entered by user
     @task = Task.new(task_params)   # (params[:task]) this will raise ActiveModel::ForbiddenAttributesError
     @task.save
-    redirect_to task_path(@task.id) # show task
+    redirect_to tasks_path
   end
 
   # /tasks/:id/edit

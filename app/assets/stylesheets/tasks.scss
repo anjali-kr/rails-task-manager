@@ -4,6 +4,10 @@
 li {
   text-decoration: none;
   list-style: none;
+  display: flex;
+  align-items: center;
+  // width: 400px;
+  justify-content: space-between;
 }
 
 a {
@@ -11,4 +15,12 @@ a {
   &:hover {
     text-decoration: underline !important;
   }
+}
+
+edit-task {
+
+}
+
+ul{
+  padding-left: 0 !important;
 }
